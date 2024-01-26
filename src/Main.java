@@ -9,7 +9,9 @@ public class Main {
         Canvas.setMaxY(790);
 
         Rectangle background = new Rectangle(0,0,1500,800);
-        background.draw();
+        //background.draw();
+        background.setColor(Color.GRAY);
+        background.fill();
 
         KeyboardLogic keyboardLogic = new KeyboardLogic();
         Player player = new Player(background);
