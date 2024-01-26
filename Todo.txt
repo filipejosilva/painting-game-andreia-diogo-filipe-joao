@@ -1,0 +1,8 @@
+Quadrados a deixar rasto ("pintar") - Diogo, Andreia
+Player com input para mover o quadrado - Filipe, João
+
+AI a mover 1 a 3 quadrados -
+
+Extra: "menu inicial" botão play e possível transição para iniciar jogo
+Extra: condições como temporizador ou ecrã 100% pintado para terminar 
+Extra: pontuação
