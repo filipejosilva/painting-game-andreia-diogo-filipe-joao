@@ -1,0 +1,108 @@
+package Player;
+
+import Game.Game;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+
+public class AiPlayer extends Player {
+    //private Rectangle getBackground;
+    private double lastMove = Math.random();
+
+    public AiPlayer(Rectangle background, int x, int y){
+        super(background, x, y);
+        getPlayer().setColor(Color.ORANGE);
+        getPlayer().fill();
+    }
+
+    @Override
+    public void move(){
+
+        if(Math.random()<0.75){
+            paint();
+            repeatMove();
+            return;
+        }
+        paint();
+        newMove();
+
+    }
+
+    @Override
+    public void moveLeft() {
+
+        if (getPlayer().getX() <= getBackground().getX()) {
+            return;
+        }
+        paint();
+        getPlayer().translate(-Game.SPEED, 0);
+
+    }
+
+    @Override
+    public void moveRight() {
+        if(getPlayer().getX() + getPlayer().getWidth() >= getBackground().getWidth()){
+            return;
+        }
+        getPlayer().translate(Game.SPEED, 0);
+    }
+
+    @Override
+    public void moveDown() {
+        if(getPlayer().getY() + getPlayer().getHeight() <= getBackground().getHeight()){
+            return;
+        }
+        getPlayer().translate(0, Game.SPEED);
+    }
+
+    @Override
+    public void moveUp() {
+        if(getPlayer().getY() <= getBackground().getY()){
+            return;
+        }
+        getPlayer().translate(0, -Game.SPEED);
+    }
+
+    @Override
+    public void paint() {
+        Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
+        paint.setColor(Color.YELLOW);
+        paint.fill();
+        getPlayer().delete();
+        getPlayer().fill();
+    }
+
+    public void newMove() {
+        double direction = Math.random();
+        lastMove = direction;
+        if (lastMove < 0.25) {
+            moveLeft();
+            return;
+        }
+        if (lastMove < 0.50) {
+            moveRight();
+            return;
+        }
+        if (lastMove < 0.75) {
+            moveDown();
+            return;
+        }
+        moveUp();
+    }
+
+    public void repeatMove() {
+        if (lastMove < 0.25) {
+            moveLeft();
+            return;
+        }
+        if (lastMove < 0.50) {
+            moveRight();
+            return;
+        }
+        if (lastMove < 0.75) {
+            moveDown();
+            return;
+        }
+        moveUp();
+    }
+
+}

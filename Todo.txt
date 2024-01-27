@@ -1,5 +1,5 @@
 Quadrados a deixar rasto ("pintar") - Diogo, Andreia
-Player com input para mover o quadrado - Filipe, João
+Player.Player.HumanPlayer com input para mover o quadrado - Filipe, João
 
 AI a mover 1 a 3 quadrados -
 
