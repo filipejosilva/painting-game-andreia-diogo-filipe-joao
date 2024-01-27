@@ -1,3 +1,5 @@
+package org.gamepainting.Player;
+
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -6,7 +8,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class KeyboardLogic implements KeyboardHandler {
 
     private Keyboard keyboard;
-    private Player player;
+    private Player humanPlayer;
 
     public KeyboardLogic(){
         keyboard = new Keyboard(this);
@@ -39,8 +41,8 @@ public class KeyboardLogic implements KeyboardHandler {
         keyboard.addEventListener(up);
     }
 
-    public void setPlayer(Player player){
-        this.player = player;
+    public void setPlayer(Player humanPlayer){
+        this.humanPlayer = humanPlayer;
     }
 
     @Override
@@ -48,22 +50,22 @@ public class KeyboardLogic implements KeyboardHandler {
 
         //Right
         if(keyboardEvent.getKey() == keyboardEvent.KEY_D){
-            player.moveRight();
+            humanPlayer.moveRight();
         }
 
         //left
         if(keyboardEvent.getKey() == keyboardEvent.KEY_A){
-            player.moveLeft();
+            humanPlayer.moveLeft();
         }
 
         //Up
         if(keyboardEvent.getKey() == keyboardEvent.KEY_W){
-            player.moveUp();
+            humanPlayer.moveUp();
         }
 
         //Down
         if(keyboardEvent.getKey() == keyboardEvent.KEY_S){
-            player.moveDown();
+            humanPlayer.moveDown();
         }
 
     }
