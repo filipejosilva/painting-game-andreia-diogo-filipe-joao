@@ -1,4 +1,5 @@
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 
 public class Game {
 
@@ -16,10 +17,13 @@ public class Game {
     public void init() {
         background.init();
 
+
         players = new Player[numberOfPlayers];
         //human goes to index zero
         players[0] = PlayerFactory.getNewHumanPlayer(background, Color.BLUE, initialPosition(background, 0));
         System.out.println("test to see if the human player was created.");
+        KeyboardLogic keyboard = new KeyboardLogic(players[0]);
+
         //AIPlayers start in index 1
         for (int i = 1; i < players.length; i++) {
             players[i] = PlayerFactory.getNewAIPlayer(background, setColor(i), initialPosition(background, i));
@@ -34,6 +38,7 @@ public class Game {
             // Pause for a while
             Thread.sleep(delay);
 
+            //players[0].move(background);
             movePlayers();
         }
 
@@ -60,7 +65,7 @@ public class Game {
         return color;
     }
     public void movePlayers() {
-        for (int i = 1; i < players.length; i++) {
+        for (int i = 0; i < players.length; i++) {
             players[i].move(background);
         }
     }

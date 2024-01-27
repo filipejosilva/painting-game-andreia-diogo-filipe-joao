@@ -1,4 +1,5 @@
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 
 public class PlayerFactory {
 
