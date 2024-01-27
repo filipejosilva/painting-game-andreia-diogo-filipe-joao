@@ -16,7 +16,7 @@ public class Main {
         background.draw();
         background.setColor(Color.GRAY);
         background.fill();*/
-       //Background background = new Background();
+       Background background = new Background();
 
         Game game = new Game(background, 50);
 

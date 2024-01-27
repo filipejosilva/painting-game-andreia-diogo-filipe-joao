@@ -1,6 +1,7 @@
 package org.gamepainting;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Player.*;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
@@ -10,9 +11,9 @@ public class Game {
     private Player[] players;
     private int numberOfPlayers = 4;
     private int delay;
-    private Rectangle background;
+    private Background background;
 
-    public Game(Rectangle background, int delay){
+    public Game(Background background, int delay){
         this.background = background;
         this.delay = delay;
     }

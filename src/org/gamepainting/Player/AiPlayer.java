@@ -1,5 +1,7 @@
 package org.gamepainting.Player;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.gamepainting.Background;
 import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
@@ -8,7 +10,7 @@ public class AiPlayer extends Player {
     //private Rectangle getBackground;
     private double lastMove = Math.random();
 
-    public AiPlayer(Rectangle background, int x, int y, Color color){
+    public AiPlayer(Background background, int x, int y, Color color){
         super(background, x, y, color);
         getPlayer().setColor(color);
         getPlayer().fill();

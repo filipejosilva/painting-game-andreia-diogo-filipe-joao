@@ -2,12 +2,14 @@ package org.gamepainting.Player;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.gamepainting.Background;
 
 public abstract class Player {
     protected Color color;
-    private Rectangle background;
+    private Background background;
     private Rectangle player;
-    public Player(Rectangle background, int x, int y, Color color){
+    public Player(Background background, int x, int y, Color color){
         this.player = new Rectangle(x,y,25,25);
         this.background = background;
         this.color = color;
@@ -17,7 +19,7 @@ public abstract class Player {
     public Rectangle getPlayer(){
         return player;
     }
-    public Rectangle getBackground(){
+    public Background getBackground(){
         return background;
     }
     public abstract void move();

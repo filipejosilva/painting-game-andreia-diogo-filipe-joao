@@ -2,13 +2,15 @@ package org.gamepainting.Player;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.gamepainting.Background;
 import org.gamepainting.Game;
 
 public class HumanPlayer extends Player {
 
     //private Rectangle background;
 
-    public HumanPlayer(Rectangle background, int x, int y, Color color){
+    public HumanPlayer(Background background, int x, int y, Color color){
         super(background, x, y, color);
         getPlayer().setColor(color);
         getPlayer().fill();
