@@ -1,4 +1,4 @@
-package Player;
+package org.gamepainting.Player;
 
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class KeyboardLogic implements KeyboardHandler {
 
     private Keyboard keyboard;
-    private HumanPlayer humanPlayer;
+    private Player humanPlayer;
 
     public KeyboardLogic(){
         keyboard = new Keyboard(this);
@@ -41,7 +41,7 @@ public class KeyboardLogic implements KeyboardHandler {
         keyboard.addEventListener(up);
     }
 
-    public void setPlayer(HumanPlayer humanPlayer){
+    public void setPlayer(Player humanPlayer){
         this.humanPlayer = humanPlayer;
     }
 

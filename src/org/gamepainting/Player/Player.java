@@ -1,8 +1,6 @@
-package Player;
+package org.gamepainting.Player;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-
-import java.util.Base64;
 
 public abstract class Player {
 

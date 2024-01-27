@@ -1,6 +1,6 @@
-package Player;
+package org.gamepainting.Player;
 
-import Game.Game;
+import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 

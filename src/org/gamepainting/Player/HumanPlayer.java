@@ -1,8 +1,8 @@
-package Player;
+package org.gamepainting.Player;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import Game.Game;
+import org.gamepainting.Game;
 
 public class HumanPlayer extends Player {
 
@@ -39,7 +39,7 @@ public class HumanPlayer extends Player {
         }
         getPlayer().translate(Game.SPEED, 0);
         /*player.setColor(Color.BLUE);
-        player = new Rectangle((player.getX() + Game.SPEED), player.getY(), 50,50);
+        player = new Rectangle((player.getX() + org.gamepainting.Game.SPEED), player.getY(), 50,50);
         player.setColor(Color.CYAN);
         player.fill();*/
         paint();

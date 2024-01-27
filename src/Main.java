@@ -1,8 +1,8 @@
-import Player.KeyboardLogic;
+import org.gamepainting.Player.KeyboardLogic;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import Player.*;
+import org.gamepainting.Player.*;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
