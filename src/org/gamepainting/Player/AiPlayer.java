@@ -8,9 +8,9 @@ public class AiPlayer extends Player {
     //private Rectangle getBackground;
     private double lastMove = Math.random();
 
-    public AiPlayer(Rectangle background, int x, int y){
-        super(background, x, y);
-        getPlayer().setColor(Color.ORANGE);
+    public AiPlayer(Rectangle background, int x, int y, Color color){
+        super(background, x, y, color);
+        getPlayer().setColor(color);
         getPlayer().fill();
     }
 
@@ -65,7 +65,7 @@ public class AiPlayer extends Player {
     @Override
     public void paint() {
         Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
-        paint.setColor(Color.YELLOW);
+        paint.setColor(color);
         paint.fill();
         getPlayer().delete();
         getPlayer().fill();

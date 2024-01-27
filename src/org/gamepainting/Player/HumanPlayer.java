@@ -8,9 +8,9 @@ public class HumanPlayer extends Player {
 
     //private Rectangle background;
 
-    public HumanPlayer(Rectangle background, int x, int y){
-        super(background, x, y);
-        getPlayer().setColor(Color.CYAN);
+    public HumanPlayer(Rectangle background, int x, int y, Color color){
+        super(background, x, y, color);
+        getPlayer().setColor(color);
         getPlayer().fill();
     }
 

@@ -1,3 +1,4 @@
+import org.gamepainting.Game;
 import org.gamepainting.Player.KeyboardLogic;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Color;
@@ -10,11 +11,16 @@ public class Main {
         Canvas.setMaxY(790);
 
         Rectangle background = new Rectangle(0,0,1500,800);
-        //background.draw();
+        background.draw();
         background.setColor(Color.GRAY);
         background.fill();
 
-        KeyboardLogic keyboardLogic = new KeyboardLogic();
+        Game game = new Game(background, 50);
+
+        game.init();
+        game.start();
+
+        /*KeyboardLogic keyboardLogic = new KeyboardLogic();
         HumanPlayer humanPlayer = new HumanPlayer(background, 10, 10);
         keyboardLogic.setPlayer(humanPlayer);
 
@@ -24,6 +30,6 @@ public class Main {
 
             Thread.sleep(50);
             ai1.move();
-        }
+        }*/
     }
 }
