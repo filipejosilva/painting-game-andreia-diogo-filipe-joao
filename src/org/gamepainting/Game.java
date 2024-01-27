@@ -35,11 +35,13 @@ public class Game {
     }
 
     public void start() throws InterruptedException {
+        int time = 0;
 
-        while(true){
+        while(time <1000){
             Thread.sleep(delay);
 
             movePlayers();
+            time ++;
         }
     }
 

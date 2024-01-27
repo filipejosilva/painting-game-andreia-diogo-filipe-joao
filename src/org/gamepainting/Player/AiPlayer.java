@@ -48,7 +48,7 @@ public class AiPlayer extends Player {
 
     @Override
     public void moveDown() {
-        if(getPlayer().getY() + getPlayer().getHeight() <= getBackground().getHeight()){
+        if(getPlayer().getY() + getPlayer().getHeight() >= getBackground().getHeight()){
             return;
         }
         getPlayer().translate(0, Game.SPEED);
@@ -74,6 +74,7 @@ public class AiPlayer extends Player {
     public void newMove() {
         double direction = Math.random();
         lastMove = direction;
+
         if (lastMove < 0.25) {
             moveLeft();
             return;
@@ -86,7 +87,8 @@ public class AiPlayer extends Player {
             moveDown();
             return;
         }
-        moveUp();
+            moveUp();
+
     }
 
     public void repeatMove() {
@@ -102,7 +104,10 @@ public class AiPlayer extends Player {
             moveDown();
             return;
         }
-        moveUp();
+        if(lastMove >=0.75){
+            moveUp();
+            return;
+        }
     }
 
 }
