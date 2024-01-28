@@ -1,3 +1,5 @@
+package org.gamepainting;
+
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;
 import org.gamepainting.Game;
