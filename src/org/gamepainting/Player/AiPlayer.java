@@ -5,7 +5,6 @@ import org.gamepainting.Background;
 import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.ietf.jgss.GSSManager;
 
 public class AiPlayer extends Player {
     private double lastMove = Math.random();

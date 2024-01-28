@@ -9,6 +9,7 @@ public class Game {
 
     public static final int SPEED = 7;
     public static final String RESOURCES_PREFIX = "resources/";
+    public static final String PLAYER_IMG = "marble";
     private Player[] players;
     private int numberOfPlayers = 4;
     private int delay;
@@ -24,14 +25,14 @@ public class Game {
         players = new Player[numberOfPlayers];
         
         //Human player
-        players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.CYAN, RESOURCES_PREFIX + "marble0.png");
+        players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.CYAN, RESOURCES_PREFIX + PLAYER_IMG + "0.png");
         System.out.println("Human player created");
         KeyboardLogic keyboard = new KeyboardLogic();
         keyboard.setPlayer(players[0]);
 
         //ai player
         for(int i = 1; i <players.length; i++){
-            players[i] = PlayerFactory.getNewAiPlayer(background, initialPositionX(i),initialPositionY(i), setColor(i),RESOURCES_PREFIX + "marble" + i + ".png");
+            players[i] = PlayerFactory.getNewAiPlayer(background, initialPositionX(i),initialPositionY(i), setColor(i),RESOURCES_PREFIX + PLAYER_IMG + i + ".png");
             System.out.println("Ai player created" + i);
         }
     }
