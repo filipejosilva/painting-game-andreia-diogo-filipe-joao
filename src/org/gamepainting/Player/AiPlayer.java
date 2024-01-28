@@ -10,10 +10,9 @@ import org.ietf.jgss.GSSManager;
 public class AiPlayer extends Player {
     private double lastMove = Math.random();
 
-    public AiPlayer(Background background, int x, int y, Color color){
-        super(background, x, y, color);
-        getPlayer().setColor(color);
-        getPlayer().fill();
+    public AiPlayer(Background background, int x, int y, Color color, String picture){
+        super(background, x, y, color, picture);
+        getPlayer().draw();
     }
 
     @Override
@@ -69,7 +68,7 @@ public class AiPlayer extends Player {
         paint.setColor(color);
         paint.fill();
         getPlayer().delete();
-        getPlayer().fill();
+        getPlayer().draw();
     }
 
     public void newMove() {

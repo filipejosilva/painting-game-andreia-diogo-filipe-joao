@@ -8,11 +8,9 @@ import org.gamepainting.Game;
 
 public class HumanPlayer extends Player {
 
-
-    public HumanPlayer(Background background, int x, int y, Color color){
-        super(background, x, y, color);
-        getPlayer().setColor(color);
-        getPlayer().fill();
+    public HumanPlayer(Background background, int x, int y, Color color, String picture){
+        super(background, x, y, color, picture);
+        getPlayer().draw();
     }
 
     @Override
@@ -61,6 +59,6 @@ public class HumanPlayer extends Player {
         paint.setColor(Color.BLUE);
         paint.fill();
         getPlayer().delete();
-        getPlayer().fill();
+        getPlayer().draw();
     }
 }
