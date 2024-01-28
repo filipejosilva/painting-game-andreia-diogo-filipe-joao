@@ -5,9 +5,9 @@ import org.gamepainting.Background;
 import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.ietf.jgss.GSSManager;
 
 public class AiPlayer extends Player {
-    //private Rectangle getBackground;
     private double lastMove = Math.random();
 
     public AiPlayer(Background background, int x, int y, Color color){
@@ -32,17 +32,16 @@ public class AiPlayer extends Player {
     @Override
     public void moveLeft() {
 
-        if (getPlayer().getX() <= getBackground().getX()) {
+        if (getPlayer().getX() - Game.SPEED <= getBackground().getX()) {
             return;
         }
-        paint();
         getPlayer().translate(-Game.SPEED, 0);
 
     }
 
     @Override
     public void moveRight() {
-        if(getPlayer().getX() + getPlayer().getWidth() >= getBackground().getWidth()){
+        if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
             return;
         }
         getPlayer().translate(Game.SPEED, 0);
@@ -50,7 +49,7 @@ public class AiPlayer extends Player {
 
     @Override
     public void moveDown() {
-        if(getPlayer().getY() + getPlayer().getHeight() >= getBackground().getHeight()){
+        if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
             return;
         }
         getPlayer().translate(0, Game.SPEED);
@@ -58,7 +57,7 @@ public class AiPlayer extends Player {
 
     @Override
     public void moveUp() {
-        if(getPlayer().getY() <= getBackground().getY()){
+        if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
             return;
         }
         getPlayer().translate(0, -Game.SPEED);
@@ -106,10 +105,8 @@ public class AiPlayer extends Player {
             moveDown();
             return;
         }
-        if(lastMove >=0.75){
             moveUp();
-            return;
         }
-    }
 
 }
+

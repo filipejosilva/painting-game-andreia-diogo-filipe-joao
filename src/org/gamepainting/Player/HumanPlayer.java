@@ -8,7 +8,6 @@ import org.gamepainting.Game;
 
 public class HumanPlayer extends Player {
 
-    //private Rectangle background;
 
     public HumanPlayer(Background background, int x, int y, Color color){
         super(background, x, y, color);
@@ -21,34 +20,24 @@ public class HumanPlayer extends Player {
     }
 
     public void moveLeft(){
-        if(getPlayer().getX() <= getBackground().getX()){
+        if(getPlayer().getX() - Game.SPEED <= getBackground().getX()){
             return;
         }
         paint();
         getPlayer().translate(-Game.SPEED, 0);
-        /*
-        Rectangle paint = new Rectangle(player.getX(), player.getY(), 50,50);
-        paint.setColor(Color.BLUE);
-        paint.fill();
-        player.delete();
-        player.fill();
-        */
 
     }
     public void moveRight(){
-        if(getPlayer().getX() + getPlayer().getWidth() >= getBackground().getWidth()){
+        if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
             return;
         }
-        getPlayer().translate(Game.SPEED, 0);
-        /*player.setColor(Color.BLUE);
-        player = new Rectangle((player.getX() + org.gamepainting.Game.SPEED), player.getY(), 50,50);
-        player.setColor(Color.CYAN);
-        player.fill();*/
         paint();
+        getPlayer().translate(Game.SPEED, 0);
+
 
     }
     public void moveUp(){
-        if(getPlayer().getY() <= getBackground().getY()){
+        if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
             return;
         }
         paint();
@@ -57,7 +46,7 @@ public class HumanPlayer extends Player {
 
 
     public void moveDown(){
-        if(getPlayer().getY() + getPlayer().getHeight() >= getBackground().getHeight()){
+        if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
             return;
         }
         paint();
