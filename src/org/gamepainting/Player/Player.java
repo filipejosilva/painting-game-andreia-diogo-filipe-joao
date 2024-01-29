@@ -11,7 +11,7 @@ public abstract class Player {
     protected Color color;
     private Background background;
     private Picture player;
-    protected ArrayList<Rectangle> score;
+    protected ArrayList<Rectangle> score = new ArrayList<>();
     public Player(Background background, int x, int y, Color color, String picture){
         this.player = new Picture(x,y, picture);
         this.background = background;
@@ -32,9 +32,10 @@ public abstract class Player {
     public abstract void moveDown();
     public abstract void moveUp();
 
-    public abstract void paint();
+    public abstract Rectangle paint();
 
-    public abstract void addArray();
+    public abstract void addArray(Rectangle rectangle);
+    public abstract int intArray();
 
 }
 

@@ -18,11 +18,11 @@ public class AiPlayer extends Player {
     public void move(){
 
         if(Math.random()<0.75){
-            paint();
+            addArray(paint());
             repeatMove();
             return;
         }
-        paint();
+        addArray(paint());
         newMove();
 
     }
@@ -62,12 +62,13 @@ public class AiPlayer extends Player {
     }
 
     @Override
-    public void paint() {
+    public Rectangle paint() {
         Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
         paint.setColor(color);
         paint.fill();
         getPlayer().delete();
         getPlayer().draw();
+        return paint;
     }
 
     public void newMove() {
@@ -107,7 +108,12 @@ public class AiPlayer extends Player {
         }
 
     @Override
-    public void addArray() {
+    public void addArray(Rectangle rectangle) {
+        score.add(rectangle);
+    }
 
+    @Override
+    public int intArray() {
+        return score.size();
     }
 }

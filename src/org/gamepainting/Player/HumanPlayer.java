@@ -21,7 +21,7 @@ public class HumanPlayer extends Player {
         if(getPlayer().getX() - Game.SPEED <= getBackground().getX()){
             return;
         }
-        paint();
+        addArray(paint());
         getPlayer().translate(-Game.SPEED, 0);
 
     }
@@ -29,7 +29,7 @@ public class HumanPlayer extends Player {
         if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
             return;
         }
-        paint();
+        addArray(paint());
         getPlayer().translate(Game.SPEED, 0);
 
 
@@ -38,7 +38,7 @@ public class HumanPlayer extends Player {
         if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
             return;
         }
-        paint();
+        addArray(paint());
         getPlayer().translate(0, -Game.SPEED);
     }
 
@@ -47,18 +47,29 @@ public class HumanPlayer extends Player {
         if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
             return;
         }
-        paint();
+        addArray(paint());
         getPlayer().translate(0, Game.SPEED);
 
 
     }
 
     @Override
-    public void paint() {
+    public Rectangle paint() {
         Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
         paint.setColor(Color.BLUE);
         paint.fill();
         getPlayer().delete();
         getPlayer().draw();
+        return paint;
+    }
+
+    @Override
+    public void addArray(Rectangle rectangle) {
+        score.add(rectangle);
+    }
+
+    @Override
+    public int intArray() {
+        return score.size();
     }
 }

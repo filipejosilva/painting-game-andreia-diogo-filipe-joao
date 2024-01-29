@@ -43,7 +43,7 @@ public class Game {
     public void start() throws InterruptedException {
         int time = 0;
 
-        while(time <100){
+        while(time <50){
             //wait(delay);
             //notify();
             Thread.sleep(delay);
@@ -51,6 +51,10 @@ public class Game {
             movePlayers();
             time ++;
 
+        }
+
+        for(Player p : players){
+            System.out.println(p.intArray());
         }
         //keyboard.setPlayer(null);
     }
