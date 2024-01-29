@@ -9,8 +9,8 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 public class Game {
 
     public static final int SPEED = 7;
-    public static final String RESOURCES_PREFIX = "resources/";
-    public static final String MENU = "resources/menu/";
+    public static final String RESOURCES_PREFIX = "";
+    public static final String MENU = "menu/";
     public static final String PLAYER_IMG = "marble";
     private Player[] players;
     private int numberOfPlayers = 4;
