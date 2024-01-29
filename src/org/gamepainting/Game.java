@@ -72,7 +72,7 @@ public class Game {
                                 players[i].getPlayer().getY() <= players[j].getPlayer().getY() + players[j].getPlayer().getHeight() &&
                                 players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getPlayer().getY()) {
 
-                            players[j].getScore().get(k).delete();
+                            //players[j].getScore().get(k).delete();
                             players[j].removeArray(k);
 
                         }
