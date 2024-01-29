@@ -2,6 +2,8 @@
 import org.gamepainting.Background;
 import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
+import org.gamepainting.Images;
+import org.gamepainting.MouseLogic;
 import org.gamepainting.Player.*;
 
 public class Main {
@@ -12,9 +14,13 @@ public class Main {
         Canvas.setMaxX(1014);
         Canvas.setMaxY(758);
 
-       Background background = new Background();
 
-        Game game = new Game(background, 40); //delay 50
+       Background background = new Background();
+       Game game = new Game(background, 40);//delay 50
+
+       /*MouseLogic mouseLogic = new MouseLogic();
+       Images images = new Images(background);
+       mouseLogic.setButtons(images.getPlayButton(),images.getExitButton());*/
 
         game.init();
         game.start();

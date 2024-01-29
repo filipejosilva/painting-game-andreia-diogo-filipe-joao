@@ -5,10 +5,13 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;
 
+import java.util.ArrayList;
+
 public abstract class Player {
     protected Color color;
     private Background background;
     private Picture player;
+    protected ArrayList<Rectangle> score;
     public Player(Background background, int x, int y, Color color, String picture){
         this.player = new Picture(x,y, picture);
         this.background = background;
@@ -18,9 +21,6 @@ public abstract class Player {
 
     public Picture getPlayer(){
         return player;
-    }
-    public void setPlayer(String newPicture, int x, int y){
-        player = new Picture(x,y, newPicture);
     }
     public Background getBackground(){
         return background;
@@ -33,6 +33,8 @@ public abstract class Player {
     public abstract void moveUp();
 
     public abstract void paint();
+
+    public abstract void addArray();
 
 }
 

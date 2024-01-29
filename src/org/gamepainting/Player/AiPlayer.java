@@ -106,4 +106,8 @@ public class AiPlayer extends Player {
             moveUp();
         }
 
+    @Override
+    public void addArray() {
+
+    }
 }
