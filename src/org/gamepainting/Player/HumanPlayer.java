@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class HumanPlayer extends Player {
 
+    private double lastMove = Math.random();
+
     public HumanPlayer(Background background, int x, int y, Color color, String picture){
         super(background, x, y, color, picture);
         getPlayer().draw();
@@ -63,16 +65,6 @@ public class HumanPlayer extends Player {
         getPlayer().delete();
         getPlayer().draw();
         return paint;
-    }
-
-    @Override
-    public void addArray(Rectangle rectangle) {
-        score.add(rectangle);
-    }
-
-    @Override
-    public int sizeArray() {
-        return score.size();
     }
 
 }

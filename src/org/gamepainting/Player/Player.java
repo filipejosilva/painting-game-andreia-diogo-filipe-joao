@@ -35,8 +35,18 @@ public abstract class Player{
 
     public abstract Rectangle paint();
 
-    public abstract void addArray(Rectangle rectangle);
-    public abstract int sizeArray();
+    public void addArray(Rectangle rectangle){
+        score.add(rectangle);
+    }
+    public int sizeArray(){
+     return score.size();
+    }
 
+    public ArrayList<Rectangle> getScore() {
+        return score;
+    }
+    public void removeArray(int index){
+        score.remove(index);
+    }
 }
 

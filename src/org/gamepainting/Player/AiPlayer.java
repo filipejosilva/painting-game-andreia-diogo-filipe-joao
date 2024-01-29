@@ -109,15 +109,5 @@ public class AiPlayer extends Player {
             moveUp();
         }
 
-    @Override
-    public void addArray(Rectangle rectangle) {
-        score.add(rectangle);
-    }
-
-    @Override
-    public int sizeArray() {
-        return score.size();
-    }
-
 
 }

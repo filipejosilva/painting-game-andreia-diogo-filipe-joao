@@ -43,10 +43,11 @@ public class Game {
     public void start() throws InterruptedException {
         int time = 0;
 
-        while(time <1000){
+        while(time <250){
             //wait(delay);
             //notify();
             Thread.sleep(delay);
+
 
             movePlayers();
             time ++;
@@ -59,90 +60,118 @@ public class Game {
         //keyboard.setPlayer(null);
     }
 
-    public void movePlayers(){
-        for(Player p : players){
+    public void movePlayers() {
+        for (int i = 0; i < players.length; i++) {
+            players[i].move();
 
-            for(int i = 0; i < p.sizeArray(); i++){
-                p.getPlayer().getY();
-                p.getPlayer().getX();
+            for (int j = 0; j < players.length; j++) {
+                if (!players[i].equals(players[j])) {
+                    for (int k = 0; k < players[j].sizeArray(); k++) {
+                        if(players[i].getPlayer().getX() <= players[j].getPlayer().getX() + players[j].getPlayer().getWidth() &&
+                                players[i].getPlayer().getX() + players[i].getPlayer().getWidth() >= players[j].getPlayer().getX() &&
+                                players[i].getPlayer().getY() <= players[j].getPlayer().getY() + players[j].getPlayer().getHeight() &&
+                                players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getPlayer().getY()) {
+
+                            players[j].getScore().get(k).delete();
+                            players[j].removeArray(k);
+
+                        }
+                    }
+
+                }
             }
-            p.move();
         }
     }
 
-    public Color setColor(int indexAIPlayer) {
+    public Color setColor (int indexAIPlayer){
 
-        Color color;
-        switch (indexAIPlayer) {
-            case 1:
-                color = Color.YELLOW;
-                break;
-            case 2:
-                color = Color.GREEN;
-                break;
-            case 3:
-                color = Color.RED;
-                break;
-            default:
-                color = Color.YELLOW;
-                break;
+            Color color;
+            switch (indexAIPlayer) {
+                case 1:
+                    color = Color.YELLOW;
+                    break;
+                case 2:
+                    color = Color.GREEN;
+                    break;
+                case 3:
+                    color = Color.RED;
+                    break;
+                default:
+                    color = Color.YELLOW;
+                    break;
+            }
+            return color;
         }
-        return color;
-    }
+        public int initialPositionX ( int indexPlayer){
 
-    public int initialPositionX(int indexPlayer) {
-        //to find the center position so all players have the same distance from center
-        int x = 0; //takes y and x positions
-        //int centerY = 0;
-        //int centerX = 0;
+            //to find the center position so all players have the same distance from center
+            int x = 0; //takes y and x positions
 
         /*
         0-1 - 700
         2-3 - 800
          */
-        switch (indexPlayer) {
-            case 0:
-                x = 537;
-                break;
-            case 1:
-                x = 537;
-                break;
-            case 2:
-                x = 477;
-                break;
-            case 3:
-                x = 477;
-                break;
+            switch (indexPlayer) {
+                case 0:
+                    x = 537;
+                    break;
+                case 1:
+                    x = 537;
+                    break;
+                case 2:
+                    x = 477;
+                    break;
+                case 3:
+                    x = 477;
+                    break;
+            }
+            return x;
         }
-        return x;
-    }
 
-    public int initialPositionY(int indexPlayer) {
-        int y = 0; //takes y and x positions
+        public int initialPositionY ( int indexPlayer){
+            int y = 0; //takes y and x positions
 
         /*
         0, 3 - 350
         1,2 - 450
          */
-        switch (indexPlayer) {
-            case 0:
-                y = 345;
-                break;
-            case 1:
-                y = 405;
-                break;
-            case 2:
-                y = 405;
-                break;
-            case 3:
-                y = 345;
-                break;
+            switch (indexPlayer) {
+                case 0:
+                    y = 345;
+                    break;
+                case 1:
+                    y = 405;
+                    break;
+                case 2:
+                    y = 405;
+                    break;
+                case 3:
+                    y = 345;
+                    break;
+            }
+            return y;
         }
-        return y;
-    }
 
-    public boolean collisionPaint(Rectangle paint, Rectangle paint1){
 
-        return paint.equals(paint1);
-    }
+        /*public void collisionPaint ( int i){
+         for (int j = 0; j < players.length; j++) {
+            if (!players[i].equals(players[j])) {
+                for (int k = 0; k < players[j].sizeArray(); k++) {
+                if(players[i].getPlayer().getX() <= players[j].getPlayer().getX() + players[j].getPlayer().getWidth() &&
+                        players[i].getPlayer().getX() + players[i].getPlayer().getWidth() >= players[j].getPlayer().getX() &&
+                        players[i].getPlayer().getY() <= players[j].getPlayer().getY() + players[j].getPlayer().getHeight() &&
+                        players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getPlayer().getY()) {
+
+                    players[j].getScore().get(k).delete();
+                    players[j].removeArray(k);
+
+                }
+                }
+
+            }
+        }
+
+    }*/
+
+
 }
