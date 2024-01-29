@@ -8,7 +8,8 @@ public class Background {
     private Picture picture;
 
     public Background(){
-        picture = new Picture(0,0, Game.RESOURCES_PREFIX + "background.png");
+        //picture = new Picture(0,0, Game.RESOURCES_PREFIX + "background.png");
+        picture = new Picture(0,0, Game.RESOURCES_PREFIX + "noonbackground.png");
         picture.draw();
     }
 

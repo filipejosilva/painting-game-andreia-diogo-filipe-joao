@@ -10,6 +10,7 @@ public class Game {
 
     public static final int SPEED = 7;
     public static final String RESOURCES_PREFIX = "resources/";
+    public static final String MENU = "resources/menu/";
     public static final String PLAYER_IMG = "marble";
     private Player[] players;
     private int numberOfPlayers = 4;
@@ -81,41 +82,46 @@ public class Game {
         //int centerY = 0;
         //int centerX = 0;
 
+        /*
+        0-1 - 700
+        2-3 - 800
+         */
         switch (indexPlayer) {
             case 0:
-                x = 700;
+                x = 537;
                 break;
             case 1:
-                x = 700;
+                x = 537;
                 break;
             case 2:
-                x = 800;
+                x = 477;
                 break;
             case 3:
-                x = 800;
+                x = 477;
                 break;
         }
         return x;
     }
 
     public int initialPositionY(int indexPlayer) {
-        //to find the center position so all players have the same distance from center
         int y = 0; //takes y and x positions
-        //int centerY = 0;
-        //int centerX = 0;
 
+        /*
+        0, 3 - 350
+        1,2 - 450
+         */
         switch (indexPlayer) {
             case 0:
-                y = 350;
+                y = 345;
                 break;
             case 1:
-                y = 450;
+                y = 405;
                 break;
             case 2:
-                y = 450;
+                y = 405;
                 break;
             case 3:
-                y = 350;
+                y = 345;
                 break;
         }
         return y;
