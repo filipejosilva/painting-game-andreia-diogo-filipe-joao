@@ -43,9 +43,7 @@ public class Game {
     public void start() throws InterruptedException {
         int time = 0;
 
-        while(time <250){
-            //wait(delay);
-            //notify();
+        while(time <1000){
             Thread.sleep(delay);
 
 
@@ -162,7 +160,7 @@ public class Game {
                         players[i].getPlayer().getY() <= players[j].getPlayer().getY() + players[j].getPlayer().getHeight() &&
                         players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getPlayer().getY()) {
 
-                    players[j].getScore().get(k).delete();
+                    //players[j].getScore().get(k).delete();
                     players[j].removeArray(k);
 
                 }
