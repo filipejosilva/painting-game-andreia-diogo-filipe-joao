@@ -1,9 +1,6 @@
 package org.gamepainting;
 
-<<<<<<< HEAD
-=======
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
->>>>>>> second-version
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Player.*;
@@ -12,11 +9,8 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 public class Game {
 
     public static final int SPEED = 7;
-<<<<<<< HEAD
-=======
     public static final String RESOURCES_PREFIX = "resources/";
     public static final String PLAYER_IMG = "marble";
->>>>>>> second-version
     private Player[] players;
     private int numberOfPlayers = 4;
     private int delay;
@@ -32,22 +26,14 @@ public class Game {
         players = new Player[numberOfPlayers];
         
         //Human player
-<<<<<<< HEAD
-        players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.CYAN);
-=======
         players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.CYAN, RESOURCES_PREFIX + PLAYER_IMG + "0.png");
->>>>>>> second-version
         System.out.println("Human player created");
         KeyboardLogic keyboard = new KeyboardLogic();
         keyboard.setPlayer(players[0]);
 
         //ai player
         for(int i = 1; i <players.length; i++){
-<<<<<<< HEAD
-            players[i] = PlayerFactory.getNewAiPlayer(background, initialPositionX(i),initialPositionY(i), setColor(i));
-=======
             players[i] = PlayerFactory.getNewAiPlayer(background, initialPositionX(i),initialPositionY(i), setColor(i),RESOURCES_PREFIX + PLAYER_IMG + i + ".png");
->>>>>>> second-version
             System.out.println("Ai player created" + i);
         }
     }
