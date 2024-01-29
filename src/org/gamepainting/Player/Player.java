@@ -4,10 +4,11 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;
+import org.gamepainting.CollisionDetector;
 
 import java.util.ArrayList;
 
-public abstract class Player {
+public abstract class Player{
     protected Color color;
     private Background background;
     private Picture player;
@@ -35,7 +36,7 @@ public abstract class Player {
     public abstract Rectangle paint();
 
     public abstract void addArray(Rectangle rectangle);
-    public abstract int intArray();
+    public abstract int sizeArray();
 
 }
 

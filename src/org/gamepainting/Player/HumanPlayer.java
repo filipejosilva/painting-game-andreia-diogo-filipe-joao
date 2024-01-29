@@ -6,6 +6,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;
 import org.gamepainting.Game;
 
+import java.util.ArrayList;
+
 public class HumanPlayer extends Player {
 
     public HumanPlayer(Background background, int x, int y, Color color, String picture){
@@ -69,7 +71,8 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public int intArray() {
+    public int sizeArray() {
         return score.size();
     }
+
 }

@@ -43,7 +43,7 @@ public class Game {
     public void start() throws InterruptedException {
         int time = 0;
 
-        while(time <50){
+        while(time <1000){
             //wait(delay);
             //notify();
             Thread.sleep(delay);
@@ -54,13 +54,18 @@ public class Game {
         }
 
         for(Player p : players){
-            System.out.println(p.intArray());
+            System.out.println(p.sizeArray());
         }
         //keyboard.setPlayer(null);
     }
 
     public void movePlayers(){
         for(Player p : players){
+
+            for(int i = 0; i < p.sizeArray(); i++){
+                p.getPlayer().getY();
+                p.getPlayer().getX();
+            }
             p.move();
         }
     }
@@ -134,5 +139,10 @@ public class Game {
                 break;
         }
         return y;
+    }
+
+    public boolean collisionPaint(Rectangle paint, Rectangle paint1){
+
+        return paint.equals(paint1);
     }
 }
