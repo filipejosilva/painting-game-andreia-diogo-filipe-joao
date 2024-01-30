@@ -9,8 +9,8 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 public class Game {
 
     public static final int SPEED = 7;
-    public static final String RESOURCES_PREFIX = "";
-    public static final String MENU = "menu/";
+    public static final String RESOURCES_PREFIX = "resources/";
+    public static final String MENU = "resources/menu/";
     public static final String PLAYER_IMG = "marble";
     private Player[] players;
     private int numberOfPlayers = 4;
@@ -61,23 +61,8 @@ public class Game {
     public void movePlayers() {
         for (int i = 0; i < players.length; i++) {
             players[i].move();
+            collisionPaint(i);
 
-            for (int j = 0; j < players.length; j++) {
-                if (!players[i].equals(players[j])) {
-                    for (int k = 0; k < players[j].sizeArray(); k++) {
-                        if(players[i].getPlayer().getX() <= players[j].getPlayer().getX() + players[j].getPlayer().getWidth() &&
-                                players[i].getPlayer().getX() + players[i].getPlayer().getWidth() >= players[j].getPlayer().getX() &&
-                                players[i].getPlayer().getY() <= players[j].getPlayer().getY() + players[j].getPlayer().getHeight() &&
-                                players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getPlayer().getY()) {
-
-                            //players[j].getScore().get(k).delete();
-                            players[j].removeArray(k);
-
-                        }
-                    }
-
-                }
-            }
         }
     }
 
@@ -151,25 +136,25 @@ public class Game {
         }
 
 
-        /*public void collisionPaint ( int i){
+        public void collisionPaint (int i){
          for (int j = 0; j < players.length; j++) {
             if (!players[i].equals(players[j])) {
                 for (int k = 0; k < players[j].sizeArray(); k++) {
-                if(players[i].getPlayer().getX() <= players[j].getPlayer().getX() + players[j].getPlayer().getWidth() &&
-                        players[i].getPlayer().getX() + players[i].getPlayer().getWidth() >= players[j].getPlayer().getX() &&
-                        players[i].getPlayer().getY() <= players[j].getPlayer().getY() + players[j].getPlayer().getHeight() &&
-                        players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getPlayer().getY()) {
+                if(players[i].getPlayer().getX() <= players[j].getScore().get(k).getX() + players[j].getScore().get(k).getWidth() &&
+                        players[i].getPlayer().getX() + players[i].getPlayer().getWidth() >= players[j].getScore().get(k).getX() &&
+                        players[i].getPlayer().getY() <= players[j].getScore().get(k).getY() + players[j].getScore().get(k).getHeight() &&
+                        players[i].getPlayer().getY() + players[i].getPlayer().getHeight() >= players[j].getScore().get(k).getY()) {
 
                     //players[j].getScore().get(k).delete();
                     players[j].removeArray(k);
 
-                }
+                    }
                 }
 
             }
         }
 
-    }*/
+    }
 
 
 }

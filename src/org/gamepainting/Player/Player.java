@@ -4,7 +4,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;
-import org.gamepainting.CollisionDetector;
+//import org.gamepainting.CollisionDetector;
 
 import java.util.ArrayList;
 

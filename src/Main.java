@@ -2,8 +2,6 @@
 import org.gamepainting.Background;
 import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
-import org.gamepainting.Images;
-import org.gamepainting.MouseLogic;
 import org.gamepainting.Player.*;
 
 public class Main {
