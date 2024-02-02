@@ -10,51 +10,11 @@ import java.util.ArrayList;
 
 public class HumanPlayer extends Player {
 
-    private double lastMove = Math.random();
-
+    KeyboardLogic keyboard;
     public HumanPlayer(Background background, int x, int y, Color color, String picture){
         super(background, x, y, color, picture);
-        getPlayer().draw();
-    }
-
-    @Override
-    public void move() {
-    }
-
-    public void moveLeft(){
-        if(getPlayer().getX() - Game.SPEED <= getBackground().getX()){
-            return;
-        }
-        addArray(paint());
-        getPlayer().translate(-Game.SPEED, 0);
-
-    }
-    public void moveRight(){
-        if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
-            return;
-        }
-        addArray(paint());
-        getPlayer().translate(Game.SPEED, 0);
-
-
-    }
-    public void moveUp(){
-        if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
-            return;
-        }
-        addArray(paint());
-        getPlayer().translate(0, -Game.SPEED);
-    }
-
-
-    public void moveDown(){
-        if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
-            return;
-        }
-        addArray(paint());
-        getPlayer().translate(0, Game.SPEED);
-
-
+        keyboard = new KeyboardLogic();
+        keyboard.setPlayer(this);
     }
 
     @Override
