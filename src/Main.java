@@ -4,6 +4,7 @@ import org.gamepainting.Game;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.gamepainting.Player.*;
 import org.gamepainting.Score;
+import org.gamepainting.Sound;
 
 import java.io.IOException;
 
@@ -15,13 +16,13 @@ public class Main {
 
 
         Background background = new Background();
+        Sound sound = new Sound();
+        sound.playSound();
         Game game = new Game(background, 40);//delay 50
-
 
 
         game.init();
         game.start();
-
 
     }
 }
