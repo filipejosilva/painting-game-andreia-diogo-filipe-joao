@@ -17,14 +17,4 @@ public class HumanPlayer extends Player {
         keyboard.setPlayer(this);
     }
 
-    @Override
-    public Rectangle paint() {
-        Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
-        paint.setColor(Color.BLUE);
-        paint.fill();
-        getPlayer().delete();
-        getPlayer().draw();
-        return paint;
-    }
-
 }

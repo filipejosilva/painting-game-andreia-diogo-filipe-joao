@@ -18,11 +18,11 @@ public class AiPlayer extends Player {
     public void move(){
 
         if(Math.random()<0.75){
-            addArray(paint());
+            //addArray(paint());
             repeatMove();
             return;
         }
-        addArray(paint());
+        //addArray(paint());
         newMove();
 
     }

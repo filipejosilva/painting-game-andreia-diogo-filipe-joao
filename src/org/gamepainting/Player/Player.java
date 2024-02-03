@@ -31,7 +31,7 @@ public class Player{
         return background;
     }
     public void move() {
-        paint();
+
     }
 
     public void moveLeft() {
@@ -39,6 +39,7 @@ public class Player{
         if (getPlayer().getX() - Game.SPEED <= getBackground().getX()) {
             return;
         }
+        addArray(paint());
         getPlayer().translate(-Game.SPEED, 0);
 
     }
@@ -47,6 +48,7 @@ public class Player{
         if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
             return;
         }
+        addArray(paint());
         getPlayer().translate(Game.SPEED, 0);
     }
 
@@ -54,6 +56,7 @@ public class Player{
         if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
             return;
         }
+        addArray(paint());
         getPlayer().translate(0, Game.SPEED);
     }
 
@@ -61,6 +64,7 @@ public class Player{
         if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
             return;
         }
+        addArray(paint());
         getPlayer().translate(0, -Game.SPEED);
     }
 
