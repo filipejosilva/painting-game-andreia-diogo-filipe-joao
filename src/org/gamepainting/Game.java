@@ -6,6 +6,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Player.*;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
+import java.io.IOException;
+
 public class Game {
 
     public static final int SPEED = 7;
@@ -16,6 +18,7 @@ public class Game {
     private int numberOfPlayers = 4;
     private int delay;
     private Background background;
+    private Score score = new Score();
 
     public Game(Background background, int delay){
         this.background = background;
@@ -27,7 +30,7 @@ public class Game {
         players = new Player[numberOfPlayers];
         
         //Human player
-        players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.CYAN, RESOURCES_PREFIX + PLAYER_IMG + "0.png");
+        players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.BLUE, RESOURCES_PREFIX + PLAYER_IMG + "0.png");
         System.out.println("Human player created");
 
         //ai player
@@ -40,7 +43,7 @@ public class Game {
     public void start() throws InterruptedException {
         int time = 0;
 
-        while(time <1000){
+        while(time <100){
             Thread.sleep(delay);
 
 
@@ -52,7 +55,19 @@ public class Game {
         for(Player p : players){
             System.out.println(p.sizeArray());
         }
+        setNewScore();
         //keyboard.setPlayer(null);
+    }
+    private void setNewScore() {
+        try {
+            if(score.getScore("resources/Score") >= players[0].sizeArray()) {
+                return;
+            }
+            score.setScore(players[0].sizeArray(), "resources/Score");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void movePlayers() {
@@ -89,7 +104,7 @@ public class Game {
 
         /*
         0-1 - 700
-        2-3 - 800
+        Score-3 - 800
          */
             switch (indexPlayer) {
                 case 0:
@@ -113,7 +128,7 @@ public class Game {
 
         /*
         0, 3 - 350
-        1,2 - 450
+        1,Score - 450
          */
             switch (indexPlayer) {
                 case 0:
