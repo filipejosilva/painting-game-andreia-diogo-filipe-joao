@@ -16,7 +16,6 @@ public class Game {
     private int numberOfPlayers = 4;
     private int delay;
     private Background background;
-    private KeyboardLogic keyboard;
 
     public Game(Background background, int delay){
         this.background = background;
@@ -30,8 +29,6 @@ public class Game {
         //Human player
         players[0] = PlayerFactory.getNewHumanPlayer(background, initialPositionX(0),initialPositionY(0), Color.CYAN, RESOURCES_PREFIX + PLAYER_IMG + "0.png");
         System.out.println("Human player created");
-        keyboard = new KeyboardLogic();
-        keyboard.setPlayer(players[0]);
 
         //ai player
         for(int i = 1; i <players.length; i++){

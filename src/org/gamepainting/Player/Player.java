@@ -4,19 +4,23 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;
+import org.gamepainting.Game;
 //import org.gamepainting.CollisionDetector;
 
 import java.util.ArrayList;
 
-public abstract class Player{
+public class Player{
     protected Color color;
     private Background background;
     private Picture player;
     protected ArrayList<Rectangle> score = new ArrayList<>();
+    protected double lastMove = Math.random();
+
     public Player(Background background, int x, int y, Color color, String picture){
         this.player = new Picture(x,y, picture);
         this.background = background;
         this.color = color;
+        getPlayer().draw();
 
     }
 
@@ -26,14 +30,48 @@ public abstract class Player{
     public Background getBackground(){
         return background;
     }
-    public abstract void move();
+    public void move() {
+        paint();
+    }
 
-    public abstract void moveLeft();
-    public abstract void moveRight();
-    public abstract void moveDown();
-    public abstract void moveUp();
+    public void moveLeft() {
 
-    public abstract Rectangle paint();
+        if (getPlayer().getX() - Game.SPEED <= getBackground().getX()) {
+            return;
+        }
+        getPlayer().translate(-Game.SPEED, 0);
+
+    }
+
+    public void moveRight() {
+        if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
+            return;
+        }
+        getPlayer().translate(Game.SPEED, 0);
+    }
+
+    public void moveDown() {
+        if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
+            return;
+        }
+        getPlayer().translate(0, Game.SPEED);
+    }
+
+    public void moveUp() {
+        if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
+            return;
+        }
+        getPlayer().translate(0, -Game.SPEED);
+    }
+
+    public Rectangle paint() {
+        Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
+        paint.setColor(color);
+        paint.fill();
+        getPlayer().delete();
+        getPlayer().draw();
+        return paint;
+    }
 
     public void addArray(Rectangle rectangle){
         score.add(rectangle);

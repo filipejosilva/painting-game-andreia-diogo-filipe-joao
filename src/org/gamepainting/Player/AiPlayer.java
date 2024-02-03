@@ -9,11 +9,9 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import java.util.ArrayList;
 
 public class AiPlayer extends Player {
-    private double lastMove = Math.random();
 
     public AiPlayer(Background background, int x, int y, Color color, String picture){
         super(background, x, y, color, picture);
-        getPlayer().draw();
     }
 
     @Override
@@ -27,50 +25,6 @@ public class AiPlayer extends Player {
         addArray(paint());
         newMove();
 
-    }
-
-    @Override
-    public void moveLeft() {
-
-        if (getPlayer().getX() - Game.SPEED <= getBackground().getX()) {
-            return;
-        }
-        getPlayer().translate(-Game.SPEED, 0);
-
-    }
-
-    @Override
-    public void moveRight() {
-        if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
-            return;
-        }
-        getPlayer().translate(Game.SPEED, 0);
-    }
-
-    @Override
-    public void moveDown() {
-        if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
-            return;
-        }
-        getPlayer().translate(0, Game.SPEED);
-    }
-
-    @Override
-    public void moveUp() {
-        if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
-            return;
-        }
-        getPlayer().translate(0, -Game.SPEED);
-    }
-
-    @Override
-    public Rectangle paint() {
-        Rectangle paint = new Rectangle(getPlayer().getX(), getPlayer().getY(), 25,25);
-        paint.setColor(color);
-        paint.fill();
-        getPlayer().delete();
-        getPlayer().draw();
-        return paint;
     }
 
     public void newMove() {
