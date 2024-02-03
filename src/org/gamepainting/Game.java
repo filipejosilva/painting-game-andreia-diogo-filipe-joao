@@ -43,7 +43,7 @@ public class Game {
     public void start() throws InterruptedException {
         int time = 0;
 
-        while(time <100){
+        while(time <1000){
             Thread.sleep(delay);
 
 
@@ -60,10 +60,10 @@ public class Game {
     }
     private void setNewScore() {
         try {
-            if(score.getScore("resources/Score") >= players[0].sizeArray()) {
+            if(score.getScore( RESOURCES_PREFIX + "Score") >= players[0].sizeArray()) {
                 return;
             }
-            score.setScore(players[0].sizeArray(), "resources/Score");
+            score.setScore(players[0].sizeArray(), RESOURCES_PREFIX + "Score");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

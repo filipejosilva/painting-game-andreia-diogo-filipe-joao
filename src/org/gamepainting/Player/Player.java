@@ -31,12 +31,16 @@ public class Player{
         return background;
     }
     public void move() {
-
     }
 
     public void moveLeft() {
 
         if (getPlayer().getX() - Game.SPEED <= getBackground().getX()) {
+            return;
+        }
+        if(paintCollision())
+        {
+            getPlayer().translate(-Game.SPEED, 0);
             return;
         }
         addArray(paint());
@@ -48,6 +52,11 @@ public class Player{
         if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
             return;
         }
+        if(paintCollision())
+        {
+            getPlayer().translate(Game.SPEED, 0);
+            return;
+        }
         addArray(paint());
         getPlayer().translate(Game.SPEED, 0);
     }
@@ -56,12 +65,22 @@ public class Player{
         if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
             return;
         }
+        if(paintCollision())
+        {
+            getPlayer().translate(0, Game.SPEED);
+            return;
+        }
         addArray(paint());
         getPlayer().translate(0, Game.SPEED);
     }
 
     public void moveUp() {
         if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
+            return;
+        }
+        if(paintCollision())
+        {
+            getPlayer().translate(0, -Game.SPEED);
             return;
         }
         addArray(paint());
@@ -89,6 +108,14 @@ public class Player{
     }
     public void removeArray(int index){
         score.remove(index);
+    }
+    public boolean paintCollision(){
+        for(int i = 0; i< sizeArray(); i++){
+            if(player.getX() == score.get(i).getX() && player.getY() == score.get(i).getY()){
+                return true;
+            }
+        }
+        return false;
     }
 }
 
