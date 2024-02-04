@@ -1,10 +1,7 @@
 package org.gamepainting;
 
-import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Player.*;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 import java.io.IOException;
 
@@ -14,11 +11,13 @@ public class Game {
     public static final String RESOURCES_PREFIX = "resources/";
     public static final String MENU = "resources/menu/";
     public static final String PLAYER_IMG = "marble";
-    private Player[] players;
+    public Player[] players;
     private int numberOfPlayers = 4;
     private int delay;
     private Background background;
     private Score score = new Score();
+    private Item item;
+    private int counter = 300; //interval between showing the items on the screen
 
     public Game(Background background, int delay){
         this.background = background;
@@ -48,14 +47,16 @@ public class Game {
 
 
             movePlayers();
+            itemManagement();
             time ++;
-
         }
 
         for(Player p : players){
             System.out.println(p.sizeArray());
         }
+
         setNewScore();
+        HumanPlayer.stopKeyboard();
         //keyboard.setPlayer(null);
     }
     private void setNewScore() {
@@ -75,6 +76,24 @@ public class Game {
             players[i].move();
             collisionPaint(i);
 
+        }
+    }
+
+    public void itemManagement() {
+
+        if(item != null){
+            if(item.decrementTimer() == 0) {
+                item = null;
+                System.out.println("item destroyed");
+            };
+        }
+        else if(counter == 0) {
+            item = new Item(background, players);
+            counter = 100;
+            System.out.println("item created");
+        }
+        else{
+            counter--;
         }
     }
 
@@ -98,14 +117,7 @@ public class Game {
             return color;
         }
         public int initialPositionX ( int indexPlayer){
-
-            //to find the center position so all players have the same distance from center
-            int x = 0; //takes y and x positions
-
-        /*
-        0-1 - 700
-        Score-3 - 800
-         */
+         int x = 0;
             switch (indexPlayer) {
                 case 0:
                     x = 537;
@@ -124,12 +136,7 @@ public class Game {
         }
 
         public int initialPositionY ( int indexPlayer){
-            int y = 0; //takes y and x positions
-
-        /*
-        0, 3 - 350
-        1,Score - 450
-         */
+            int y = 0;
             switch (indexPlayer) {
                 case 0:
                     y = 345;
@@ -159,14 +166,9 @@ public class Game {
 
                     //players[j].getScore().get(k).delete();
                     players[j].removeArray(k);
-
                     }
                 }
-
             }
         }
-
     }
-
-
 }
