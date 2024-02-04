@@ -2,8 +2,8 @@ package org.gamepainting;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.gamepainting.Player.*;
-import org.gamepainting.windows.*;
-import org.gamepainting.windows.HighScore;
+import org.gamepainting.Windows.*;
+import org.gamepainting.Windows.HighScore;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package org.gamepainting.windows;
+package org.gamepainting.Windows;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;

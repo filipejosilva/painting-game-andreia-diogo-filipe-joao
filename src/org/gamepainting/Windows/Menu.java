@@ -1,4 +1,4 @@
-package org.gamepainting.windows;
+package org.gamepainting.Windows;
 import org.academiadecodigo.simplegraphics.mouse.Mouse;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.gamepainting.Background;

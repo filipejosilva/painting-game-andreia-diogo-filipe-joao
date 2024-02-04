@@ -1,9 +1,7 @@
 package org.gamepainting;
 import org.academiadecodigo.simplegraphics.mouse.*;
 import org.academiadecodigo.simplegraphics.pictures.*;
-import org.gamepainting.Player.HumanPlayer;
-import org.gamepainting.windows.Menu;
-import org.gamepainting.windows.Window;
+import org.gamepainting.Windows.Window;
 
 import java.io.IOException;
 

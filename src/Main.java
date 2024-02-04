@@ -1,8 +1,6 @@
 
-import org.gamepainting.*;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
-import org.gamepainting.Player.*;
-import org.gamepainting.windows.CurrentWindow;
+import org.gamepainting.Windows.CurrentWindow;
 
 import java.io.IOException;
 
