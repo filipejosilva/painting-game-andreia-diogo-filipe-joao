@@ -117,5 +117,9 @@ public class Player{
         }
         return false;
     }
+
+    public void checkCollisionItem() {
+
+    }
 }
 

@@ -9,6 +9,14 @@ public class KeyboardLogic implements KeyboardHandler {
 
     private Keyboard keyboard;
     private Player humanPlayer;
+    KeyboardEvent right;
+    KeyboardEvent right1;
+    KeyboardEvent left;
+    KeyboardEvent left1;
+    KeyboardEvent down;
+    KeyboardEvent down1;
+    KeyboardEvent up;
+    KeyboardEvent up1;
 
     public KeyboardLogic(){
         keyboard = new Keyboard(this);
@@ -17,47 +25,47 @@ public class KeyboardLogic implements KeyboardHandler {
 
     public void init(){
         //right
-        KeyboardEvent right = new KeyboardEvent();
+        right = new KeyboardEvent();
         right.setKey(KeyboardEvent.KEY_D);
         right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(right);
 
-        KeyboardEvent right1 = new KeyboardEvent();
+        right1 = new KeyboardEvent();
         right1.setKey(KeyboardEvent.KEY_RIGHT);
         right1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(right1);
 
 
         //left
-        KeyboardEvent left = new KeyboardEvent();
+        left = new KeyboardEvent();
         left.setKey(KeyboardEvent.KEY_A);
         left.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(left);
 
-        KeyboardEvent left1 = new KeyboardEvent();
+        left1 = new KeyboardEvent();
         left1.setKey(KeyboardEvent.KEY_LEFT);
         left1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(left1);
 
 
         //Down
-        KeyboardEvent down = new KeyboardEvent();
+        down = new KeyboardEvent();
         down.setKey(KeyboardEvent.KEY_S);
         down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(down);
 
-        KeyboardEvent down1 = new KeyboardEvent();
+        down1 = new KeyboardEvent();
         down1.setKey(KeyboardEvent.KEY_DOWN);
         down1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(down1);
 
         //Up
-        KeyboardEvent up = new KeyboardEvent();
+        up = new KeyboardEvent();
         up.setKey(KeyboardEvent.KEY_W);
         up.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(up);
 
-        KeyboardEvent up1 = new KeyboardEvent();
+        up1 = new KeyboardEvent();
         up1.setKey(KeyboardEvent.KEY_UP);
         up1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(up1);
@@ -92,6 +100,16 @@ public class KeyboardLogic implements KeyboardHandler {
 
     }
 
+    public void keyboardStopped(){
+        keyboard.removeEventListener(right);
+        keyboard.removeEventListener(right1);
+        keyboard.removeEventListener(left);
+        keyboard.removeEventListener(left1);
+        keyboard.removeEventListener(up);
+        keyboard.removeEventListener(up1);
+        keyboard.removeEventListener(down);
+        keyboard.removeEventListener(down1);
+    }
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
