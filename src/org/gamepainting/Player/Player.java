@@ -16,6 +16,8 @@ public class Player{
     protected ArrayList<Rectangle> score = new ArrayList<>();
     protected double lastMove = Math.random();
 
+    protected int speed = Game.SPEED;
+
     public Player(Background background, int x, int y, Color color, String picture){
         this.player = new Picture(x,y, picture);
         this.background = background;
@@ -35,56 +37,56 @@ public class Player{
 
     public void moveLeft() {
 
-        if (getPlayer().getX() - Game.SPEED <= getBackground().getX()) {
+        if (getPlayer().getX() - speed <= getBackground().getX()) {
             return;
         }
         if(paintCollision())
         {
-            getPlayer().translate(-Game.SPEED, 0);
+            getPlayer().translate(-speed, 0);
             return;
         }
         addArray(paint());
-        getPlayer().translate(-Game.SPEED, 0);
+        getPlayer().translate(-speed, 0);
 
     }
 
     public void moveRight() {
-        if(getPlayer().getX() + getPlayer().getWidth() + Game.SPEED >= getBackground().getWidth()){
+        if(getPlayer().getX() + getPlayer().getWidth() + speed >= getBackground().getWidth()){
             return;
         }
         if(paintCollision())
         {
-            getPlayer().translate(Game.SPEED, 0);
+            getPlayer().translate(speed, 0);
             return;
         }
         addArray(paint());
-        getPlayer().translate(Game.SPEED, 0);
+        getPlayer().translate(speed, 0);
     }
 
     public void moveDown() {
-        if(getPlayer().getY() + getPlayer().getHeight() + Game.SPEED >= getBackground().getHeight()){
+        if(getPlayer().getY() + getPlayer().getHeight() + speed >= getBackground().getHeight()){
             return;
         }
         if(paintCollision())
         {
-            getPlayer().translate(0, Game.SPEED);
+            getPlayer().translate(0, speed);
             return;
         }
         addArray(paint());
-        getPlayer().translate(0, Game.SPEED);
+        getPlayer().translate(0, speed);
     }
 
     public void moveUp() {
-        if(getPlayer().getY() - Game.SPEED <= getBackground().getY()){
+        if(getPlayer().getY() - speed <= getBackground().getY()){
             return;
         }
         if(paintCollision())
         {
-            getPlayer().translate(0, -Game.SPEED);
+            getPlayer().translate(0, -speed);
             return;
         }
         addArray(paint());
-        getPlayer().translate(0, -Game.SPEED);
+        getPlayer().translate(0, -speed);
     }
 
     public Rectangle paint() {

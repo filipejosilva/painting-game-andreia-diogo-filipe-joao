@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class KeyboardLogic implements KeyboardHandler {
 
     private Keyboard keyboard;
-    private Player humanPlayer;
+    private HumanPlayer humanPlayer;
     KeyboardEvent right;
     KeyboardEvent right1;
     KeyboardEvent left;
@@ -17,6 +17,7 @@ public class KeyboardLogic implements KeyboardHandler {
     KeyboardEvent down1;
     KeyboardEvent up;
     KeyboardEvent up1;
+    KeyboardEvent space;
 
     public KeyboardLogic(){
         keyboard = new Keyboard(this);
@@ -69,9 +70,15 @@ public class KeyboardLogic implements KeyboardHandler {
         up1.setKey(KeyboardEvent.KEY_UP);
         up1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(up1);
+
+        //Space
+        space = new KeyboardEvent();
+        space.setKey(KeyboardEvent.KEY_SPACE);
+        space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(space);
     }
 
-    public void setPlayer(Player humanPlayer){
+    public void setPlayer(HumanPlayer humanPlayer){
         this.humanPlayer = humanPlayer;
     }
 
@@ -96,6 +103,11 @@ public class KeyboardLogic implements KeyboardHandler {
         //Down
         if(keyboardEvent.getKey() == keyboardEvent.KEY_S || keyboardEvent.getKey() == keyboardEvent.KEY_DOWN){
             humanPlayer.moveDown();
+        }
+
+        //Space cheat
+        if(keyboardEvent.getKey() == keyboardEvent.KEY_SPACE){
+            humanPlayer.setSpeed();
         }
 
     }

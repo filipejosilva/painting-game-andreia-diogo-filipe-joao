@@ -2,10 +2,12 @@ package org.gamepainting;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.gamepainting.Player.*;
+import org.gamepainting.windows.*;
+import org.gamepainting.windows.HighScore;
 
 import java.io.IOException;
 
-public class Game {
+public class Game extends Window {
 
     public static final int SPEED = 7;
     public static final String RESOURCES_PREFIX = "resources/";
@@ -19,7 +21,8 @@ public class Game {
     private Item item;
     private int counter = 300; //interval between showing the items on the screen
 
-    public Game(Background background, int delay){
+    public Game(Background background, int delay, CurrentWindow current){
+        super(current);
         this.background = background;
         this.delay = delay;
     }
@@ -39,10 +42,13 @@ public class Game {
         }
     }
 
-    public void start() throws InterruptedException {
+    public void start() throws InterruptedException, IOException {
         int time = 0;
 
-        while(time <1000){
+        Sound sound = new Sound();
+        sound.playSound();
+
+        while(time <100){
             Thread.sleep(delay);
 
 
@@ -55,9 +61,10 @@ public class Game {
             System.out.println(p.sizeArray());
         }
 
-        setNewScore();
         HumanPlayer.stopKeyboard();
-        //keyboard.setPlayer(null);
+        sound.stopSound();
+        setNewScore();
+        changeWindow();
     }
     private void setNewScore() {
         try {
@@ -170,5 +177,12 @@ public class Game {
                 }
             }
         }
+    }
+
+    @Override
+    public void changeWindow() throws IOException {
+        Background background = new Background();
+        HighScore highScore = new HighScore(current);
+        current.setWindow(highScore);
     }
 }
