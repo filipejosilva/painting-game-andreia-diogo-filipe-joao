@@ -66,7 +66,7 @@ public class Game extends Window {
         HumanPlayer.stopKeyboard();
         sound.stopSound();
         setNewScore();
-        changeWindow();
+        current.changeScreen();
     }
     private void setNewScore() {
         try {

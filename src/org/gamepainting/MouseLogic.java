@@ -1,9 +1,11 @@
 package org.gamepainting;
 import org.academiadecodigo.simplegraphics.mouse.*;
 import org.academiadecodigo.simplegraphics.pictures.*;
+import org.gamepainting.Windows.CurrentWindow;
 import org.gamepainting.Windows.Window;
 
 import java.io.IOException;
+import java.util.Currency;
 
 public class MouseLogic implements MouseHandler{
 
@@ -11,6 +13,7 @@ public class MouseLogic implements MouseHandler{
     private Picture playButton;
     private Picture exitButton;
     private Window menu;
+    private CurrentWindow window;
 
 
     public MouseLogic(){
@@ -30,7 +33,7 @@ public class MouseLogic implements MouseHandler{
                 mouseEvent.getY() > playButton.getY() &&
                 mouseEvent.getY() < playButton.getY() + playButton.getHeight()) {
             try {
-                menu.changeWindow();
+                window.changeScreen();
             } catch (InterruptedException | IOException e) {
                 throw new RuntimeException(e);
             }
@@ -48,6 +51,10 @@ public class MouseLogic implements MouseHandler{
 
     @Override
     public void mouseMoved(MouseEvent mouseEvent){
+    }
+
+    public void stop(){
+        mouse.removeEventListener(MouseEventType.MOUSE_CLICKED);
     }
 
 }
