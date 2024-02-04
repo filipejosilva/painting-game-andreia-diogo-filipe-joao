@@ -16,15 +16,20 @@ public class AiPlayer extends Player {
 
     @Override
     public void move(){
-
-        if(Math.random()<0.75){
+        if(isStunned() == false) {
+            if (Math.random() < 0.75) {
+                //addArray(paint());
+                repeatMove();
+                return;
+            }
             //addArray(paint());
-            repeatMove();
-            return;
+            newMove();
+        } else {
+            stunnedCount--;
+            if(stunnedCount == 0) {
+                stunned = false;
+            }
         }
-        //addArray(paint());
-        newMove();
-
     }
 
     public void newMove() {
@@ -32,35 +37,35 @@ public class AiPlayer extends Player {
         lastMove = direction;
 
         if (lastMove < 0.25) {
-            moveLeft();
+            moveLeft(multiplier);
             return;
         }
         if (lastMove < 0.50) {
-            moveRight();
+            moveRight(multiplier);
             return;
         }
         if (lastMove < 0.75) {
-            moveDown();
+            moveDown(multiplier);
             return;
         }
-            moveUp();
+            moveUp(multiplier);
 
     }
 
     public void repeatMove() {
         if (lastMove < 0.25) {
-            moveLeft();
+            moveLeft(multiplier);
             return;
         }
         if (lastMove < 0.50) {
-            moveRight();
+            moveRight(multiplier);
             return;
         }
         if (lastMove < 0.75) {
-            moveDown();
+            moveDown(multiplier);
             return;
         }
-            moveUp();
+            moveUp(multiplier);
         }
 
 

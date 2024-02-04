@@ -24,10 +24,10 @@ public class HumanPlayer extends Player {
 
     public void setSpeed(){
         if(speedCounter == 0){
-            speed = speed * 2;
+            multiplier = 2;
             speedCounter ++;
         }else if(speedCounter == 1){
-            speed = Game.SPEED;
+            multiplier = 1;
             speedCounter --;
         }
     }

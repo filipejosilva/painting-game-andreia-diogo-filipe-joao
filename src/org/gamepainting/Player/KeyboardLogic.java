@@ -84,32 +84,38 @@ public class KeyboardLogic implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
+        if(humanPlayer.isStunned()) {
+            humanPlayer.stunnedCount--;
+            if(humanPlayer.stunnedCount == 0) {
+                humanPlayer.stunned = false;
+            }
 
-        //Right
-        if(keyboardEvent.getKey() == keyboardEvent.KEY_D || keyboardEvent.getKey() == keyboardEvent.KEY_RIGHT){
-            humanPlayer.moveRight();
+        } else {
+            //Right
+            if(keyboardEvent.getKey() == keyboardEvent.KEY_D || keyboardEvent.getKey() == keyboardEvent.KEY_RIGHT){
+                humanPlayer.moveRight(humanPlayer.multiplier);
+            }
+
+            //left
+            if(keyboardEvent.getKey() == keyboardEvent.KEY_A || keyboardEvent.getKey() == keyboardEvent.KEY_LEFT){
+                humanPlayer.moveLeft(humanPlayer.multiplier);
+            }
+
+            //Up
+            if(keyboardEvent.getKey() == keyboardEvent.KEY_W || keyboardEvent.getKey() == keyboardEvent.KEY_UP){
+                humanPlayer.moveUp(humanPlayer.multiplier);
+            }
+
+            //Down
+            if(keyboardEvent.getKey() == keyboardEvent.KEY_S || keyboardEvent.getKey() == keyboardEvent.KEY_DOWN){
+                humanPlayer.moveDown(humanPlayer.multiplier);
+            }
+
+            //Space cheat
+            if(keyboardEvent.getKey() == keyboardEvent.KEY_SPACE){
+                humanPlayer.setSpeed();
+            }
         }
-
-        //left
-        if(keyboardEvent.getKey() == keyboardEvent.KEY_A || keyboardEvent.getKey() == keyboardEvent.KEY_LEFT){
-            humanPlayer.moveLeft();
-        }
-
-        //Up
-        if(keyboardEvent.getKey() == keyboardEvent.KEY_W || keyboardEvent.getKey() == keyboardEvent.KEY_UP){
-            humanPlayer.moveUp();
-        }
-
-        //Down
-        if(keyboardEvent.getKey() == keyboardEvent.KEY_S || keyboardEvent.getKey() == keyboardEvent.KEY_DOWN){
-            humanPlayer.moveDown();
-        }
-
-        //Space cheat
-        if(keyboardEvent.getKey() == keyboardEvent.KEY_SPACE){
-            humanPlayer.setSpeed();
-        }
-
     }
 
     public void keyboardStopped(){

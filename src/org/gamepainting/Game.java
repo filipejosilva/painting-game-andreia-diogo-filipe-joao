@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class Game extends Window {
 
-    public static final int SPEED = 7;
     public static final String RESOURCES_PREFIX = "resources/";
     public static final String MENU = "resources/menu/";
     public static final String PLAYER_IMG = "marble";
@@ -19,12 +18,14 @@ public class Game extends Window {
     private Background background;
     private Score score = new Score();
     private Item item;
-    private int counter = 300; //interval between showing the items on the screen
+    private int counterWaitItemCreation = 300; //interval between showing the items on the screen
+    private Collision collision;
 
     public Game(Background background, int delay, CurrentWindow current){
         super(current);
         this.background = background;
         this.delay = delay;
+        collision = new Collision();
     }
 
     public void init(){
@@ -48,11 +49,12 @@ public class Game extends Window {
         Sound sound = new Sound();
         sound.playSound();
 
-        while(time <100){
+        while(time <1000){
             Thread.sleep(delay);
 
 
             movePlayers();
+            Collision.checkCollisionPlayers(players);
             itemManagement();
             time ++;
         }
@@ -82,26 +84,32 @@ public class Game extends Window {
         for (int i = 0; i < players.length; i++) {
             players[i].move();
             collisionPaint(i);
-
         }
     }
 
     public void itemManagement() {
 
         if(item != null){
+            collision.checkCollisionItems(item, players);
             if(item.decrementTimer() == 0) {
                 item = null;
                 System.out.println("item destroyed");
             };
         }
-        else if(counter == 0) {
+        else if(counterWaitItemCreation == 0) {
             item = new Item(background, players);
-            counter = 100;
+            counterWaitItemCreation = 100;
             System.out.println("item created");
         }
-        else{
-            counter--;
+        else {
+            counterWaitItemCreation--;
         }
+
+
+        for (int i = 0; i < players.length; i++) {
+            players[i].handleItems();
+        }
+
     }
 
     public Color setColor (int indexAIPlayer){
