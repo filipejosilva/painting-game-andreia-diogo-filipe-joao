@@ -25,7 +25,6 @@ public class Sound {
 
     public void stopSound() {
         try{
-            Clip clip = AudioSystem.getClip();
             clip.stop();
         } catch (Exception e){
             e.printStackTrace();
