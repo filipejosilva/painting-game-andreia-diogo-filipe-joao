@@ -21,10 +21,11 @@ public class MouseLogic implements MouseHandler{
         mouse.addEventListener(MouseEventType.MOUSE_CLICKED);
     }
 
-    public void setButtons(Picture playButton, Picture exitButton, Window menu){
+    public void setButtons(Picture playButton, Picture exitButton, Window menu, CurrentWindow window){
         this.playButton = playButton;
         this.exitButton = exitButton;
         this.menu = menu;
+        this.window = window;
     }
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {

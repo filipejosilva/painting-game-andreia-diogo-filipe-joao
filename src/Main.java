@@ -24,7 +24,7 @@ public class Main {
         }
         currentWindow.changeScreen();*/
 
-        mouse.setButtons(currentWindow.getWindow().getPlayButton(), currentWindow.getWindow().getExitButton(), currentWindow.getWindow());
+        mouse.setButtons(currentWindow.getWindow().getPlayButton(), currentWindow.getWindow().getExitButton(), currentWindow.getWindow(), currentWindow);
         //mouse.setGame(game);
 
     }
